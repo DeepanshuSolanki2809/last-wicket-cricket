@@ -387,7 +387,7 @@
       <article class="lw-support-card">
         <h3>From anywhere — Ko-fi</h3>
         <p class="lw-support-sub">Card or PayPal, wherever you're watching from.</p>
-        <a id="lwRazorpayBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Buy a coffee on Ko-fi</a>
+        <a id="lwRazorpayBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Support on Razorpay</a>
       </article>
     </div>
   </div>
@@ -404,7 +404,7 @@
   var FORM_ENDPOINT = "https://formspree.io/f/xlgqzbre"; // TODO: replace with your Formspree endpoint
   var UPI_VPA = "solankideepanshu2809@oksbi"; // TODO: replace with your real UPI ID (VPA)
   var UPI_PAYEE_NAME = "Last Wicket Cricket"; // TODO: edit if you want a different name shown in UPI apps
-  var Razorpay_URL = "razorpay.me/@deepanshu2809"; // TODO: replace with your real Ko-fi page
+  var Razorpay_URL = "https://razorpay.me/@deepanshu2809"; // TODO: replace with your real Ko-fi page
 
   var watchBtn = document.getElementById('lwWatchBtn');
   if (watchBtn) watchBtn.href = YOUTUBE_URL;
@@ -435,7 +435,7 @@
       var link = buildUpiLink(currentAmount);
       upiBtn.href = link;
       upiBtn.textContent = currentAmount ? ('Pay ₹' + currentAmount + ' via UPI app') : 'Pay via UPI app';
-      qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=' + encodeURIComponent(link);
+      qrImg.src = 'https://drive.google.com/file/d/1kplPJZQqCAEHBPChf0g7lARrNp8oZqa2/view?usp=sharing' + encodeURIComponent(link);
     };
 
     chips.forEach(function(chip){

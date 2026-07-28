@@ -388,7 +388,9 @@
         <h3>From anywhere </h3>
         <p class="lw-support-sub">Card or PayPal, wherever you're watching from.</p>
         <a id="lwRazorpayBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Support on Razorpay</a>
+         <a id="lwPayPalBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Support on PayPal</a>
       </article>
+    
     </div>
   </div>
 </section>
@@ -405,6 +407,7 @@
   var UPI_VPA = "solankideepanshu2809@oksbi"; // TODO: replace with your real UPI ID (VPA)
   var UPI_PAYEE_NAME = "Last Wicket Cricket"; // TODO: edit if you want a different name shown in UPI apps
   var Razorpay_URL = "https://razorpay.me/@deepanshu2809"; // TODO: replace with your real Ko-fi page
+  var PayPal_URL = "https://paypal.me/DEEPANSHUSOLANKI396"; // TODO: replace with your real Ko-fi page
 
   var watchBtn = document.getElementById('lwWatchBtn');
   if (watchBtn) watchBtn.href = YOUTUBE_URL;
@@ -412,6 +415,9 @@
   var RazorpayBtn = document.getElementById('lwRazorpayBtn');
   if (RazorpayBtn) RazorpayBtn.href = Razorpay_URL;
 
+ var PayPalBtn = document.getElementById('PayPalBtn');
+  if (PayPalBtn) PayPalBtn.href = PayPal_URL;
+  
   // --- Tip the Twelfth Man (UPI) ---
   var chips = document.querySelectorAll('.lw-chip');
   var customInput = document.getElementById('lwCustomAmount');

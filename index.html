@@ -291,7 +291,7 @@
 <section class="lw-hero" id="top">
   <div class="lw-hero-inner">
     <p class="lw-eyebrow">A ONE-PERSON CRICKET STUDIO</p>
-    <h1 class="lw-headline">CRICKET,<br>RE-EDITED.</h1>
+    <h1 class="lw-headline">CRICKET<br></h1>
     <p class="lw-subhead">Story-mode highlights, EA Sports Cricket 07 nostalgia, and gully cricket chaos — cut together by one fan with a phone and way too many opinions about umpiring.</p>
 
     <div class="lw-scoreboard" aria-label="Channel status">
@@ -385,7 +385,7 @@
       </article>
 
       <article class="lw-support-card">
-        <h3>From anywhere — Ko-fi</h3>
+        <h3>From anywhere </h3>
         <p class="lw-support-sub">Card or PayPal, wherever you're watching from.</p>
         <a id="lwRazorpayBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Support on Razorpay</a>
       </article>
@@ -435,7 +435,7 @@
       var link = buildUpiLink(currentAmount);
       upiBtn.href = link;
       upiBtn.textContent = currentAmount ? ('Pay ₹' + currentAmount + ' via UPI app') : 'Pay via UPI app';
-      qrImg.src = 'https://drive.google.com/file/d/1kplPJZQqCAEHBPChf0g7lARrNp8oZqa2/view?usp=sharing' + encodeURIComponent(link);
+      qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=' + encodeURIComponent(link);
     };
 
     chips.forEach(function(chip){

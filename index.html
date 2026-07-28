@@ -205,6 +205,50 @@
     color: var(--ink-2); text-align:center; line-height:1.6;
   }
 
+  /* ---------- SUPPORT ---------- */
+  .lw-support{ padding: 90px 24px 100px; max-width: 1100px; margin: 0 auto; }
+  .lw-support-inner{ text-align:center; }
+  .lw-support .lw-eyebrow{ text-align:center; }
+  .lw-support-copy{
+    color: var(--ink-1); font-size: 15px; margin: 0 auto 40px;
+    max-width: 540px;
+  }
+  .lw-support-grid{
+    display:grid; gap:20px; text-align:left;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .lw-support-card{
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 26px;
+  }
+  .lw-support-card h3{ margin: 0 0 8px; font-size: 19px; }
+  .lw-support-sub{ color: var(--ink-1); font-size: 14px; margin: 0 0 20px; }
+
+  .lw-amount-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .lw-chip{
+    background: var(--bg-2); border: 1px solid var(--border); color: var(--ink-0);
+    font-family: var(--font-mono); font-size: 12.5px; padding: 8px 12px;
+    border-radius: 999px; cursor:pointer;
+    transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+  }
+  .lw-chip:hover{ border-color: var(--amber-dim); }
+  .lw-chip.is-active{ background: var(--amber); border-color: var(--amber); color: #1A1300; font-weight:700; }
+
+  .lw-custom-amount{
+    width:100%; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 12px; color: var(--ink-0); font-size: 14px; margin-bottom:14px;
+    font-family: var(--font-body);
+  }
+
+  .lw-support-card .lw-btn{ width:100%; }
+
+  .lw-qr-wrap{ margin-top:18px; text-align:center; }
+  .lw-qr-wrap img{
+    margin: 0 auto 10px; border-radius: 8px; border: 1px solid var(--border);
+    background:#fff; padding: 8px; display:block;
+  }
+  .lw-qr-caption{ font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2); margin:0; text-align:center; }
+
   /* ---------- FOOTER ---------- */
   .lw-footer{
     padding: 40px 24px 50px; text-align:center;
@@ -235,6 +279,7 @@
     .lw-hero{ padding: 70px 0 60px; }
     .lw-pillars{ padding: 60px 20px; }
     .lw-message{ padding: 60px 20px 70px; }
+    .lw-support{ padding: 60px 20px 70px; }
     .lw-sb-row{ gap: 16px; }
   }
 </style>
@@ -298,6 +343,10 @@
         <input type="text" id="lwName" name="name" placeholder="Anonymous fan works too" maxlength="60">
       </div>
       <div class="lw-field">
+        <label for="lwEmail">Your email (optional — only if you want a reply)</label>
+        <input type="email" id="lwEmail" name="email" placeholder="Leave blank for a one-way message">
+      </div>
+      <div class="lw-field">
         <label for="lwMsg">Your message</label>
         <textarea id="lwMsg" name="message" placeholder="Loved the Sachin edit, hated the umpire in the gully clip, anything really..." maxlength="600" required></textarea>
       </div>
@@ -305,7 +354,42 @@
       <p class="lw-form-status" id="lwStatus" role="status" aria-live="polite"></p>
     </form>
 
-    <p class="lw-privacy-note">Messages go straight to the inbox behind this channel.<br>Nothing about them appears on this page — and nothing about you gets shared.</p>
+    <p class="lw-privacy-note">Messages go straight to the inbox behind this channel.<br>Nothing about them appears on this page — and nothing about you gets shared unless you leave an email for a reply.</p>
+  </div>
+</section>
+
+<section class="lw-support" id="support">
+  <div class="lw-support-inner">
+    <p class="lw-eyebrow">SUPPORT THE INNINGS</p>
+    <h2 class="lw-section-title">Tip the Twelfth Man</h2>
+    <p class="lw-support-copy">The twelfth man never bats, never bowls, just shows up when it matters. If an edit made you laugh or a highlight hit different, this is that seat — completely optional, no subscription attached.</p>
+
+    <div class="lw-support-grid">
+      <article class="lw-support-card">
+        <h3>From India — UPI</h3>
+        <p class="lw-support-sub">Goes straight to the bank. No platform, no cut.</p>
+
+        <div class="lw-amount-chips" role="group" aria-label="Choose a tip amount">
+          <button type="button" class="lw-chip" data-amount="21">A Single · ₹21</button>
+          <button type="button" class="lw-chip is-active" data-amount="51">A Boundary · ₹51</button>
+          <button type="button" class="lw-chip" data-amount="101">A Six · ₹101</button>
+          <button type="button" class="lw-chip" data-amount="custom">Custom</button>
+        </div>
+        <input type="number" id="lwCustomAmount" class="lw-custom-amount" min="1" placeholder="Enter an amount (₹)" hidden>
+
+        <a id="lwUpiBtn" class="lw-btn lw-btn-primary" href="#">Pay ₹51 via UPI app</a>
+        <div class="lw-qr-wrap">
+          <img id="lwQr" width="176" height="176" alt="UPI payment QR code">
+          <p class="lw-qr-caption">On a laptop? Scan this with any UPI app instead.</p>
+        </div>
+      </article>
+
+      <article class="lw-support-card">
+        <h3>From anywhere — Ko-fi</h3>
+        <p class="lw-support-sub">Card or PayPal, wherever you're watching from.</p>
+        <a id="lwKofiBtn" class="lw-btn lw-btn-ghost" href="#" target="_blank" rel="noopener">Buy a coffee on Ko-fi</a>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -318,9 +402,65 @@
   // ---- SETUP: edit these two before you share this page ----
   var YOUTUBE_URL = "https://www.youtube.com/@deepanshu_2809"; // TODO: put your real channel URL here
   var FORM_ENDPOINT = "https://formspree.io/f/xlgqzbre"; // TODO: replace with your Formspree endpoint
+  var UPI_VPA = "razorpay.me/@deepanshu2809"; // TODO: replace with your real UPI ID (VPA)
+  var UPI_PAYEE_NAME = "Last Wicket Cricket"; // TODO: edit if you want a different name shown in UPI apps
+  var KOFI_URL = "https://ko-fi.com/deepanshu2809"; // TODO: replace with your real Ko-fi page
 
   var watchBtn = document.getElementById('lwWatchBtn');
   if (watchBtn) watchBtn.href = YOUTUBE_URL;
+
+  var kofiBtn = document.getElementById('lwKofiBtn');
+  if (kofiBtn) kofiBtn.href = KOFI_URL;
+
+  // --- Tip the Twelfth Man (UPI) ---
+  var chips = document.querySelectorAll('.lw-chip');
+  var customInput = document.getElementById('lwCustomAmount');
+  var upiBtn = document.getElementById('lwUpiBtn');
+  var qrImg = document.getElementById('lwQr');
+
+  if(upiBtn && qrImg && customInput && chips.length){
+    var currentAmount = 51;
+
+    var buildUpiLink = function(amount){
+      var params = new URLSearchParams();
+      params.set('pa', UPI_VPA);
+      params.set('pn', UPI_PAYEE_NAME);
+      params.set('cu', 'INR');
+      if(amount) params.set('am', amount);
+      params.set('tn', 'Tip for Last Wicket Cricket');
+      return 'upi://pay?' + params.toString();
+    };
+
+    var refreshUpi = function(){
+      var link = buildUpiLink(currentAmount);
+      upiBtn.href = link;
+      upiBtn.textContent = currentAmount ? ('Pay ₹' + currentAmount + ' via UPI app') : 'Pay via UPI app';
+      qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=' + encodeURIComponent(link);
+    };
+
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('is-active'); });
+        chip.classList.add('is-active');
+        if(chip.dataset.amount === 'custom'){
+          customInput.hidden = false;
+          customInput.focus();
+          currentAmount = parseInt(customInput.value, 10) || 0;
+        }else{
+          customInput.hidden = true;
+          currentAmount = parseInt(chip.dataset.amount, 10);
+        }
+        refreshUpi();
+      });
+    });
+
+    customInput.addEventListener('input', function(){
+      currentAmount = parseInt(customInput.value, 10) || 0;
+      refreshUpi();
+    });
+
+    refreshUpi();
+  }
 
   var form = document.getElementById('lwForm');
   var statusEl = document.getElementById('lwStatus');

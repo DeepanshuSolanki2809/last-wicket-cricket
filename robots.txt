@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deepanshusolanki2809.github.io/last-wicket-cricket/sitemap.xml
+Sitemap: https://deepanshusolanki2809.github.io/lastwicketcricket.com/sitemap.xml
